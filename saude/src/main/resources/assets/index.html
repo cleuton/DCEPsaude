@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alerta de sintomas</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+    </head>
+    <body>
+        <div>
+            <div id="titulo">
+                <h1 id="titulografico">Sintomas com maior quantidade 30 dias</h1>
+            </div>
+            <div id="grafico1">
+               	<canvas id="canvas" ></canvas>
+          	</div>
+        </div>
+        <div>
+            <div id="titulo2">
+                <h1>Sintomas Por região</h1>
+                <h3>Últimos 30 dias</h3>
+            </div>
+            <select id="regiaoSelect" size="1">
+            	<option value="0" selected>Todas as regiões</option>
+            	<option value="1" >Rio de Janeiro - Zona Sul</option>
+            	<option value="2" >Rio de Janeiro - Zona Norte</option>
+            	<option value="3" >Rio de Janeiro - Zona Oeste</option>
+            	<option value="4" >Rio de Janeiro - Leopondina</option>
+            	<option value="5" >Duque de Caxias</option>
+            	<option value="6" >Niterói</option>
+            	<option value="7" >Nova Iguaçú</option>
+            	<option value="8" >São Gonçalo</option>
+            	<option value="9" >Queimados</option>
+            </select>
+        </div>
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/Chart.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

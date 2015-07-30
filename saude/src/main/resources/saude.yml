@@ -1,0 +1,9 @@
+dbUrl: "localhost"
+server:
+  rootPath: /api/*
+  applicationConnectors:
+  - type: http
+    port: 3000
+  adminConnectors:
+  - type: http
+    port: 3001
