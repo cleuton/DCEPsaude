@@ -55,6 +55,7 @@ public class SnapshotResource {
     	int httpStatus = 200;
     	try {
     		mensagem = geraMapReduce(regiao, dtInicio, dtFim);
+    		this.increment.increment();
 		} catch (Exception e) {
 			status = "error";
 			mensagem = e.getClass().getName() + ": " + e.getLocalizedMessage();
