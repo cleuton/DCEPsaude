@@ -56,7 +56,10 @@ public class SaudeResource {
     	String saidaJSON = "{ \"status\": \"" + status + "\","
     					 + "\"data\": {"
     					 + "\"mensagem\": \"" + mensagem + "\"}}"; 
-        return Response.status(httpStatus).entity(saidaJSON).build();
+        return Response
+        		.status(httpStatus)
+        		.header("Access-Control-Allow-Origin", "*")
+        		.entity(saidaJSON).build();
     }
 
 	public SaudeResource(String dbUrl, 
