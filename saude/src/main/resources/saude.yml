@@ -2,8 +2,8 @@ dbUrl: "10.29.128.133"
 zkServerAddress: 10.29.128.133:2181
 logging:
   level: INFO
-  loggers: 
-    "com.obomprogramador.*": DEBUG
+  loggers:
+    "com.obomprogramador": DEBUG
 server:
   rootPath: /api/*
   applicationConnectors:
