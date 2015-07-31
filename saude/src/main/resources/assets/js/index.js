@@ -47,7 +47,7 @@ var CONSERPRO_SINTOMAS = {
         $.ajax({
             async: false,
             //url: "StudentJsonDataServlet",
-            url: "http://localhost:3000/api/snapshot?dtInicio=" + getDtInicio() + "&dtFim=" + getDtFim() + qParRegiao,
+            url: "/api/snapshot?dtInicio=" + getDtInicio() + "&dtFim=" + getDtFim() + qParRegiao,
             dataType: "json",
             method: "get",
             success: function (resultado) {

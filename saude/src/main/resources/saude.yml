@@ -1,4 +1,4 @@
-dbUrl: "localhost"
+dbUrl: "10.29.128.133"
 zkServerAddress: 10.29.128.133:2181
 server:
   rootPath: /api/*
