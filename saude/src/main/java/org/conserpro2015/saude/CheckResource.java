@@ -57,8 +57,7 @@ public class CheckResource {
 
 	}
 	
-	public CheckResource(String dbUrl, 
-			String zkServerAddress) {
+	public CheckResource(String dbUrl) {
 		super();
 		this.dbUrl = dbUrl;
 		/*

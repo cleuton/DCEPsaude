@@ -33,6 +33,9 @@ public class SaudeApplication extends Application<SaudeConfiguration>{
         final SnapshotResource resSnap = new SnapshotResource(
         		configuration.getDbUrl()
         		);
+        final CheckResource resCheck = new CheckResource(
+        		configuration.getDbUrl()
+        		);
         		
         final SaudeCheck healthCheck =
                 new SaudeCheck();
