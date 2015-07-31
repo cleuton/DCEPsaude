@@ -27,11 +27,13 @@ public class SaudeApplication extends Application<SaudeConfiguration>{
 		
 	
         final SaudeResource resource = new SaudeResource(
-                configuration.getDbUrl()
+                configuration.getDbUrl(), 
+                configuration.getZkServerAddress()
             );
         
         final SnapshotResource resSnap = new SnapshotResource(
-        		configuration.getDbUrl()
+        		configuration.getDbUrl(), 
+                configuration.getZkServerAddress()
         		);
         final CheckResource resCheck = new CheckResource(
         		configuration.getDbUrl()
@@ -42,6 +44,7 @@ public class SaudeApplication extends Application<SaudeConfiguration>{
         environment.healthChecks().register("saude", healthCheck);
         environment.jersey().register(resource);
         environment.jersey().register(resSnap);
+        environment.jersey().register(resCheck);
 	}
 
 }

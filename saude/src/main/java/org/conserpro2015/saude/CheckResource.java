@@ -1,8 +1,5 @@
 package org.conserpro2015.saude;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,19 +7,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
-import org.bson.Document;
 
 import com.codahale.metrics.annotation.Timed;
 import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.obomprogramador.microservice.servkeeper.ServiceClient.Increment;
 
 @Path("/status")
 public class CheckResource {
 	private String dbUrl;
-	private String zkServerAddress;
-	//private Increment increment;
 	private Logger logger = Logger.getLogger(this.getClass());
 	private MongoClient client;
 	@GET
@@ -60,10 +52,6 @@ public class CheckResource {
 	public CheckResource(String dbUrl) {
 		super();
 		this.dbUrl = dbUrl;
-		/*
-		this.zkServerAddress = zkServerAddress;
-		this.increment = new Increment(this.zkServerAddress, "/saudeserver_counter");
-		*/
 	}	
 	
 	private boolean verifyDb() {

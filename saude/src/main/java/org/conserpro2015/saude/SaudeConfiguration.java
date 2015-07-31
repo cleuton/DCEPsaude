@@ -5,7 +5,8 @@ import io.dropwizard.Configuration;
 
 public class SaudeConfiguration extends Configuration {
 	private String dbUrl;
-
+	private String zkServerAddress;
+	
 	@JsonProperty
 	public String getDbUrl() {
 		return dbUrl;
@@ -13,6 +14,15 @@ public class SaudeConfiguration extends Configuration {
 
 	public void setDbUrl(String dbUrl) {
 		this.dbUrl = dbUrl;
+	}
+
+	@JsonProperty
+	public String getZkServerAddress() {
+		return zkServerAddress;
+	}
+
+	public void setZkServerAddress(String zkServerAddress) {
+		this.zkServerAddress = zkServerAddress;
 	} 
 
 	

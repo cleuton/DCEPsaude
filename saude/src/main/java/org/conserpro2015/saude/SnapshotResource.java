@@ -27,10 +27,13 @@ import com.mongodb.client.MapReduceIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.FindOptions;
+import com.obomprogramador.microservice.servkeeper.ServiceClient.Increment;
 
 @Path("/snapshot")
 public class SnapshotResource {
 	private String dbUrl;
+	private String zkServerAddress;
+	private Increment increment;
 	private Logger logger = Logger.getLogger(this.getClass());
 	private MongoClient client;
 	@GET
@@ -122,8 +125,12 @@ public class SnapshotResource {
 		return JsonResposta;
 	}
 
-	public SnapshotResource(String dbUrl) {
+	public SnapshotResource(String dbUrl, 
+			 String zkServerAddress) {
 		this.dbUrl = dbUrl;
+		this.zkServerAddress = zkServerAddress;
+		this.increment = new Increment(this.zkServerAddress, "/saudeserver_counter");
+
 	}
 	
 	private void openDB() throws Exception {

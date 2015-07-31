@@ -18,10 +18,13 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.obomprogramador.microservice.servkeeper.ServiceClient.Increment;
 
 @Path("/sintoma")
 public class SaudeResource {
 	private String dbUrl;
+	private String zkServerAddress;
+	private Increment increment;
 	private Logger logger = Logger.getLogger(this.getClass());
 	private MongoClient client;
 	@POST
@@ -43,6 +46,7 @@ public class SaudeResource {
     			mensagem = "erro ao inserir";
     			httpStatus = 500;
     		}
+    		this.increment.increment();
 		} catch (Exception e) {
 			status = "error";
 			mensagem = e.getClass().getName() + ": " + e.getLocalizedMessage();
@@ -55,8 +59,12 @@ public class SaudeResource {
         return Response.status(httpStatus).entity(saidaJSON).build();
     }
 
-	public SaudeResource(String dbUrl) {
+	public SaudeResource(String dbUrl, 
+						 String zkServerAddress) {
 		this.dbUrl = dbUrl;
+		this.zkServerAddress = zkServerAddress;
+		this.increment = new Increment(this.zkServerAddress, "/saudeserver_counter");
+
 	}
 	
 	private boolean insertSintoma(Sintoma sintoma) {

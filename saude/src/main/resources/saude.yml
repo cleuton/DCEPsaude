@@ -1,4 +1,5 @@
 dbUrl: "localhost"
+zkServerAddress: 10.29.128.133:2181
 server:
   rootPath: /api/*
   applicationConnectors:
