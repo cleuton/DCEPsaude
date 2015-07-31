@@ -67,6 +67,10 @@ public class SaudeResource {
 		this.dbUrl = dbUrl;
 		this.zkServerAddress = zkServerAddress;
 		this.increment = new Increment(this.zkServerAddress, "/saudeserver_counter");
+		logger.info("### Starting resource SaudeResource. dbUrl: "
+				+ this.dbUrl
+				+ ", zkServer: "
+				+ this.zkServerAddress);
 
 	}
 	
